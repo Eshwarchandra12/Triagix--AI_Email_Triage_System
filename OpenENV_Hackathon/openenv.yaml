@@ -1,25 +1,12 @@
-
-name: "EmailTriageEnvironment"
-version: "1.0.0"
-description: >
-  A production-grade environment simulating enterprise email triage.
-  Agents must classify, route, and reply to emails under SLA constraints.
-author: "EshwarChandra"
-repository: "https://huggingface.co/spaces/EshwarChandra/OpenENV_Hackathon"
-
 tasks:
-  - id: "easy"
-    description: "Single email classification and urgency assignment."
-    max_steps: 8
-  - id: "medium"
-    description: "Sequential multi-step queue triage with precise routing."
-    max_steps: 8
-  - id: "hard"
-    description: "Full triage workflow facing SLA limits and required reply generation."
-    max_steps: 8
+  - id: easy
+    description: Basic email classification
+    grader: grader_easy
 
-dependencies:
-  - pydantic
-  - openai
-  - fastapi
-  - uvicorn
+  - id: medium
+    description: Multi-step triage
+    grader: grader_medium
+
+  - id: hard
+    description: Full triage with SLA and reply
+    grader: grader_hard
